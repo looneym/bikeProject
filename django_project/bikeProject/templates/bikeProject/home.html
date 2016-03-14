@@ -1,0 +1,35 @@
+{% extends "bikeProject/header.html" %}
+
+{% block content %}
+<script type="text/javascript">   
+    function GetRotationCount() {   
+    setInterval(function() {
+        $.ajax({
+            type: "GET",
+            url: "http://188.166.168.103/bikeProject/getRotationCount/",
+            dataType: "json",
+            async: true,
+            success: function (json) {
+                $('#counter').html(json.message);           
+            }
+        });
+    }, 10);
+}
+</script>
+
+<p>Rotation count:</p>
+<p id="counter"></p>
+<a href="javascript:GetRotationCount()"> Get RotationCount </a>
+
+
+        <div>
+            <form method="post">  {% csrf_token %}
+    <input type="text" name="username" placeholder="Username"/>
+    <input type="password" name="password" placeholder="Password"/>
+
+    <input type="submit" value="Login"/>
+            </form>
+        </div>
+
+
+{% endblock %}
