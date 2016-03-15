@@ -7,12 +7,12 @@
 import MySQLdb
 
 # connect to the database
-db = MySQLdb.connect(host="188.166.168.103", user="", passwd="", port="3306", db="bikeProject")
+db = MySQLdb.connect(host="188.166.168.103", user="", passwd="", port=3306, db="bikeProject")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 
-# Insert raw SQL query
+# Insert raw SQL query, change VALUES() as needed
 sql = """INSERT INTO bikeProject_counter(currentCount)  VALUES ();
 
 """
@@ -22,5 +22,7 @@ db.commit()
 
 # disconnect from server
 db.close()
+
+
 
 
